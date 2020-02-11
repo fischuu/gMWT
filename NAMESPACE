@@ -16,4 +16,4 @@ S3method(plot,re)
 
 S3method(print,gmw)
 
-useDynLib(gMWT)
+useDynLib(gMWT, .registration = TRUE)
