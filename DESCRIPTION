@@ -1,8 +1,8 @@
 Package: gMWT
 Type: Package
 Title: Generalized Mann-Whitney Type Tests
-Version: 1.1.2
-Date: 2020-02-21
+Version: 1.1.3
+Date: 2020-05-03
 Author: Daniel Fischer , Hannu Oja
 Maintainer: Daniel Fischer <daniel.fischer@luke.fi>
 Depends: R (>= 3.2), clinfun, Rcpp (>= 0.9.13)

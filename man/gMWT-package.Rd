@@ -35,8 +35,8 @@ Bejamini & Hochberg and Westfall & Young.
   \tabular{ll}{
     Package: \tab GMW\cr
     Type: \tab Package\cr
-    Version: \tab 1.1.2\cr
-    Date: \tab 2020-02-12\cr
+    Version: \tab 1.1.3\cr
+    Date: \tab 2020-05-03\cr
     License: \tab GPL\cr
     LazyLoad: \tab yes\cr
   }

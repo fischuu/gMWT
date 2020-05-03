@@ -67,7 +67,7 @@ mw.single.gmw <- function(X,g,goi,type,nper,alternative,mc,PARAMETERS,output, ke
 # Case: MW from the base system, two.sided, X is vector
 	    for(testRun in 1:nrow(diffTests))
 	    { # Our greater and base greater are different interpretations, remeber that!!!
-	      testResult <- wilcox.test(X[g==diffTests[testRun,1]],X[g!=diffTests[testRun,1]],alt="two.sided")
+	      testResult <- wilcox.test(X[g==diffTests[testRun,1]],X[g!=diffTests[testRun,1]],alt="two.sided", exact=FALSE)
 	      PVAL <- testResult$p.value
 	
 	      names(PVAL) <- "p.value"
@@ -145,7 +145,7 @@ mw.single.gmw <- function(X,g,goi,type,nper,alternative,mc,PARAMETERS,output, ke
 # Case: MW from the base system, greater, X is vector
 	    for(testRun in 1:nrow(diffTests))
 	    { # Our greater and base greater are different interpretations, remember that!!!
-	      testResult <- wilcox.test(X[g==diffTests[testRun,1]],X[g!=diffTests[testRun,1]],alt="less")
+	      testResult <- wilcox.test(X[g==diffTests[testRun,1]],X[g!=diffTests[testRun,1]],alt="less", exact=FALSE)
 	      PVAL <- testResult$p.value
 	
 	      names(PVAL) <- "p.value"
@@ -221,7 +221,7 @@ mw.single.gmw <- function(X,g,goi,type,nper,alternative,mc,PARAMETERS,output, ke
 # Case: MW from the base system, smaller, X is vector
 	    for(testRun in 1:nrow(diffTests))
 	    { # Our greater and base greater are different interpretations, remeber that!!!
-	      testResult <- wilcox.test(X[g==diffTests[testRun,1]],X[g!=diffTests[testRun,1]],alt="greater")
+	      testResult <- wilcox.test(X[g==diffTests[testRun,1]],X[g!=diffTests[testRun,1]],alt="greater", exact=FALSE)
 	      PVAL <- testResult$p.value
 	
 	      names(PVAL) <- "p.value"
@@ -350,7 +350,7 @@ mw.single.gmw <- function(X,g,goi,type,nper,alternative,mc,PARAMETERS,output, ke
 #----------------------------------------------------------------------------------------------------------------------------------------
 # Case: permutation, two sided, X is matrix
 	   innerLoop <- function(i,testRun){
-	     testResult <- wilcox.test(X[g==diffTests[testRun,1],i],X[g!=diffTests[testRun,1],i],alt="two.sided")
+	     testResult <- wilcox.test(X[g==diffTests[testRun,1],i],X[g!=diffTests[testRun,1],i],alt="two.sided", exact=FALSE)
              obsValue <- testResult$statistic
              pValue <- testResult$p.value
 	     return(list(pValue=pValue,obsValue=obsValue))
@@ -479,7 +479,7 @@ mw.single.gmw <- function(X,g,goi,type,nper,alternative,mc,PARAMETERS,output, ke
 #----------------------------------------------------------------------------------------------------------------------------------------
 # Case: base, greater, X is matrix
 	   innerLoop <- function(i,testRun){
-	     testResult <- wilcox.test(X[g==diffTests[testRun,1],i],X[g!=diffTests[testRun,1],i],alt="less")
+	     testResult <- wilcox.test(X[g==diffTests[testRun,1],i],X[g!=diffTests[testRun,1],i],alt="less", exact=FALSE)
              obsValue <- testResult$statistic
              pValue <- testResult$p.value
 	     return(list(pValue=pValue,obsValue=obsValue))
@@ -608,7 +608,7 @@ mw.single.gmw <- function(X,g,goi,type,nper,alternative,mc,PARAMETERS,output, ke
 #----------------------------------------------------------------------------------------------------------------------------------------
 # Case: base, smaller, X is matrix
 	   innerLoop <- function(i,testRun){
-	     testResult <- wilcox.test(X[g==diffTests[testRun,1],i],X[g!=diffTests[testRun,1],i],alt="greater")
+	     testResult <- wilcox.test(X[g==diffTests[testRun,1],i],X[g!=diffTests[testRun,1],i],alt="greater", exact=FALSE)
              obsValue <- testResult$statistic
              pValue <- testResult$p.value
 	     return(list(pValue=pValue,obsValue=obsValue))
